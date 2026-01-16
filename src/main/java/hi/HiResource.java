@@ -28,11 +28,27 @@ public class HiResource {
     @APIResponse(
         responseCode = "200",
         description = "",
-        content = @Content(schema = @Schema(implementation = Body2.class))
+        content = @Content(
+                schema = @Schema(implementation = Body2.class)
+        )
     )
     @Path("/not-correct")
     @GET
     public Body2 getBody2() {
+        return null;
+    }
+
+    @APIResponse(
+            responseCode = "200",
+            description = "",
+            content = @Content(
+                    schema = @Schema(implementation = Body2.class),
+                    mediaType = MediaType.APPLICATION_JSON
+            )
+    )
+    @Path("/correct-explicit-media-type")
+    @GET
+    public Body2 getBody2x() {
         return null;
     }
 }
